@@ -13,12 +13,12 @@ const Todo = props => {
             })
     }
     return <tr>
-        <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_description}</td>
-        <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_responsible}</td>
-        <td className={props.todo.todo_completed ? 'completed' : ''}>{props.todo.todo_priority}</td>
+        <td className={props.todo.status ? 'completed' : ''}>{props.todo.title}</td>
+        <td className={props.todo.status ? 'completed' : ''}>{props.todo.description}</td>
+        <td className={props.todo.status ? 'completed' : ''}>{props.todo.priority}</td>
         <td>
             <Link to={"/edit/" + props.todo._id}>Edit</Link>
-            <a className="ml-3" href="" onClick={onClick}>Remove</a>
+            <a className="ml-3" href="" onClick={onClick}>Delete</a>
         </td>
     </tr>
 }
@@ -51,12 +51,12 @@ export default class TodoList extends React.Component {
 
     render() {
         return <React.Fragment>
-            <h3>Todos List</h3>
+            <h3>Development List</h3>
             <table className="table table-striped" style={{ marginTop: 20 }} >
                 <thead>
                     <tr>
+                        <th>Title</th>
                         <th>Description</th>
-                        <th>Responsible</th>
                         <th>Priority</th>
                         <th>Action</th>
                     </tr>
